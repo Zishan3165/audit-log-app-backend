@@ -1,14 +1,14 @@
-import express from 'express';
+import express from "express";
 import {
   getAllUsers,
   saveUser,
   updateUser,
   deleteUser,
   loginUser,
-  getUserById
-} from '../services/userService.js';
-import validators from '../models/view-models/index.js';
-import { handleValidation } from '../middlewares/handleValidations.js';
+  getUserById,
+} from "../services/userService.js";
+import validators from "../models/view-models/index.js";
+import { handleValidation } from "../middlewares/handleValidations.js";
 
 const router = express.Router();
 
@@ -47,35 +47,28 @@ const login = async (req, res, next) => {
   }
 };
 
-const putHandler = async (req, res, next) => {
-  try {
-    const body = req.body;
-    const user = await updateUser(body);
-    res.status(201).send(user);
-  } catch (e) {
-    return next(e, req, res);
-  }
-};
-
 const deleteHandler = async (req, res, next) => {
   try {
     const id = req.params.id;
     await deleteUser(id);
-    res.status(200).send('User deleted');
+    res.status(200).send("User deleted");
   } catch (e) {
     return next(e, req, res);
   }
 };
 
-router.get('/', getHandler);
-router.get('/:id', getHandlerById);
-router.post('/login', login);
-router.post('/signup', handleValidation(validators.userSchemaValidate), postHandler);
-router.put('/', putHandler);
-router.delete('/:id', deleteHandler);
+router.get("/", getHandler);
+router.get("/:id", getHandlerById);
+router.post("/login", login);
+router.post(
+  "/signup",
+  handleValidation(validators.userSchemaValidate),
+  postHandler
+);
+router.delete("/:id", deleteHandler);
 
 const configure = (app) => {
-  app.use('/users', router);
+  app.use("/users", router);
 };
 
 export default configure;

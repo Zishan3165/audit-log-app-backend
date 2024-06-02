@@ -7,8 +7,7 @@
   "scripts": {
     "test": "jest tests --runInBand --force-exit",
     "start": "node --max-old-space-size=4096 api/index.js",
-    "install-client": "cd .. && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build"
+    "install-client": "cd .. && npm install"
   },
   "dependencies": {
     "@babel/core": "^7.17.5",
