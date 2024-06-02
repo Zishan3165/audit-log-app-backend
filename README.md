@@ -33,7 +33,6 @@ Frontend Implementation in this repository : https://github.com/Zishan3165/audit
 
 1. Start the development server
    ```bash
-   npm install
    npm start
    ```
 2. The server will start on `http://localhost:5000` by default.
