@@ -3,6 +3,7 @@
 A system where user will register and login and create sites, and respective logs of those actions will be shown
 
 This is a part of a MERN stack project written in Express with MongoDB, where a user can register, login, create/edit/delete sites and view their logs.
+Mongoose ODM is also used
 
 Frontend Implementation in this repository : https://github.com/Zishan3165/audit-log-app
 
